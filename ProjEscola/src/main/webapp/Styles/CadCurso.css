@@ -25,7 +25,8 @@ body{
     color: #fff;
     margin-left: 36%;
     margin-top: 1%;
-    justify-content: center;
+    
+ 
 }
 
 input, select, textarea, button{
@@ -77,28 +78,6 @@ fieldset.grupo .campo{
     text-shadow: none;
     color: white;
     
-button{
-    font-size: 1.2em;
-    background: #fff;
-    border: 0;
-    margin-bottom: 1em;
-    color: #000;
-    padding:  0.2em 0.6em;
-    box-shadow: 2px 2px 2px 2px #fff;
-    text-shadow: 1px 1px 1px #fff;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    margin-right: -50%;
-    transform:translate(-50%, -50%);
 }
-
-.button:hover{
-    background: #333;
-    box-shadow: 2px 2px 2px 2px #fff;
-    text-shadow: none;
-    color: white;
-}
-#check{
-    display: inline-block;
-}
+#check {
+    display: inline-block;}
