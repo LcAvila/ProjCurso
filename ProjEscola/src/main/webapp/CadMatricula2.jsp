@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    
+ <%@page import = "model.Aluno"%>    
+ <%@page import = "model.Curso"%>   
+ <%@page import = "java.util.ArrayList"%>
+ 
+ <%     
+    
+    ArrayList<Aluno> listaalu = (ArrayList<Aluno>) request.getAttribute("alunos");
+    
+    ArrayList<Curso> listacur = (ArrayList<Curso>) request.getAttribute("cursos");
+ %>
+
+    
+   	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,100 +70,49 @@
 
 	<div class="row">
 		<div class="col-md-12 text-center">
-		<h3>Controle de Alunos</h3>
+		<h3>Controle de Matrículas</h3>
 		</div>
 	</div>
+	
+	
+	
   
-  <form method="get" action="alunonovo">
+  <form method="get" action="matricular">
+  
  
   <div class="form-row">
-    <div class="col-md-2 mb-3">
-    <label for="idcliente">Código do Aluno</label>
-    <input type="text" class="form-control" name="idaluno">   
-   </div>
-  
-   <div class="col-md-6 mb-3">
-    <label for="nome">Nome</label>
-    <input type="text" class="form-control" id="" placeholder="Digite Nome" name="nome">
-  </div>
-  
-   <div class="col-md-2 mb-3">
-    <label for="telefone">Telefone</label>
-    <input type="text" class="form-control" id="" placeholder="Digite Telefone" name="telefone">
-  </div>
-  
-  <div class="col-md-2 mb-3">
-    <label for="datanasc">Data Nascimento</label>
-    <input type="date" class="form-control" id="" placeholder="" name="datanasc">
-  </div>
-  </div>
-  
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="" placeholder="Digite Email" name="email">
-  </div>
-  
-  <div class="col-md-3 mb-3">
-    <label for="cpf">Cpf</label>
-    <input type="text" class="form-control" id="" placeholder="Digite Cpf" name="cpf">
-  </div>
-  
- <div class="col-md-3 mb-3">
-    <label for="rg">Rg</label>
-    <input type="text" class="form-control" id="" placeholder="Digite Rg" name="rg">
-  </div>
-  
-  </div>
-  
-  <div class="form-group">
-    <hr>
-  </div>
-  
-  <div class="form-row">
-    <div class="col-md-2 mb-3">
-    <label for="cep">Cep</label>
-    <input type="text" class="form-control" id="cep" placeholder="Digite Cep" name="cep" onblur="pesquisacep(this.value);">
-  </div>
-  
- <div class="col-md-8 mb-3">
-    <label for="rua">Rua</label>
-    <input type="text" class="form-control" id="rua" placeholder="" name="rua">
-  </div>
-  
-  <div class="col-md-2 mb-3">
-    <label for="numero">Número</label>
-    <input type="text" class="form-control" id="" placeholder="" name="numero">
-  </div>
-   </div>
-   
-   <div class="form-row">
-	<div class="col-md-2 mb-4">    
-	    <label for="complemento">Complemento</label>
-	    <input type="text" class="form-control" id="" placeholder="Digite Complemento" name="complemento">
-	</div> 
-  
-  	<div class="col-md-4 mb-4">    
-    	<label for="bairro">Bairro</label>
-    	<input type="text" class="form-control" id="bairro" placeholder="" name="bairro">
+    
+    <div class="col-md-2">
+	    <label for="data">Data</label>
+	    <input type="date" class="form-control" id="" placeholder="" name="data">
+  	</div>
+   <div class="col-md-5 mb-3">
+	    <label for="aluno">Aluno</label>		
+	    <select name="aluno" class="form-control"> 
+	    
+	    	<% for(int i=0;i<listaalu.size();i++){  %>  
+	    	    
+	    	<option value="<%=listaalu.get(i).getIdaluno()%>"><%=listaalu.get(i).getNome()%></option>  
+	   		   <%} %>
+	    </select>        
   	</div>
   
-  	<div class="col-md-4 mb-4">    
-	    <label for="cidade">Cidade</label>
-	    <input type="text" class="form-control" id="cidade" placeholder="" name="cidade">
-  	</div>
-  
-  	<div class="col-md-2 mb-4">    
-	    <label for="uf">Uf</label>
-	    <input type="text" class="form-control" id="uf" placeholder="" name="uf">
-  	</div>
-  	</div>
-  
+   <div class="col-md-5 mb-3">
+   <label for="curso">Curso</label>		
+	    <select name="curso" class="form-control"> 
+	    
+	    	<% for(int i=0;i<listacur.size();i++){  %>  
+	          
+	    	<option value="<%=listacur.get(i).getIdcurso()%>"><%=listacur.get(i).getNome()%></option>
+	    	
+	    	<%} %>  
+	    </select>      
+  </div> 
+    
+  </div>
   
   <button type="submit" class="btn btn-primary">Enviar</button>
-  
 </form>
-
 
 
 </div>

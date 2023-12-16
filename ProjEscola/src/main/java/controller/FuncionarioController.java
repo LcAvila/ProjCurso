@@ -11,55 +11,81 @@ import javax.servlet.http.HttpSession;
 import model.Funcionario;
 import model.FuncionarioDao;
 
-
-@WebServlet({"/FuncionarioController", "/login"})
+/**
+ * Servlet implementation class FuncionarioController
+ */
+@WebServlet({"/FuncionarioController","/login","/logout"})
 public class FuncionarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     public FuncionarioController() {
         super();
+        // TODO Auto-generated constructor stub
     }
-    
-    
-    
+
+     
     Funcionario func = new Funcionario();
     FuncionarioDao dao = new FuncionarioDao();
-
     
-    
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		
 		String action = request.getServletPath();
 		
 		if(action.equals("/login")) {
 			Logar(request,response);
 		}	
+		
+		if(action.equals("/logout")) {
+			Logout(request,response);
+		}	
+		
 	}
 	
-	
-	
 	protected void Logar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		func.setEmail(request.getParameter("email"));
 		func.setSenha(request.getParameter("senha"));
-		
 		dao.Login(func);
 		
 		if(func.getUsuario()!="") {
 			HttpSession session=request.getSession();
-			session.setAttribute("usuario", func.getUsuario());
-			response.sendRedirect("indexadm.jsp");
+			session.setAttribute("usuario", func.getUsuario());			
+			response.sendRedirect("indexadm.jsp");			
 		}
 		else {
 			response.sendRedirect("Login.jsp");
 		}
+		
+	}
+	
+	protected void Logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//criar objeto session para acessar a sessão no método 
+		HttpSession session = request.getSession(false);
+		//remover a variável de sessão
+		session.removeAttribute("usuario");
+		if (session != null) {
+			
+			//invalidar a sessão
+		    session.invalidate();
+		}
+		response.sendRedirect("Login.jsp");
+		
+		
 	}
 	
 	
-	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

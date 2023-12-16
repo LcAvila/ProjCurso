@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="Scripts/cep.js" type="text/javascript"></script>
+<script src="cep.js" type="text/javascript"></script>
 
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav mr-auto">      
@@ -23,7 +22,7 @@
           <a class="dropdown-item" href="CadAluno.jsp">Aluno</a>
           <a class="dropdown-item" href="CadCurso.jsp">Curso</a>          
           <a class="dropdown-item" href="#">Turma</a>
-          <a class="dropdown-item" href="#">Matricula</a>          
+          <a class="dropdown-item" href="cadmatricula">Matricula</a>          
         </div>
       </li>
       
@@ -46,7 +45,7 @@
       </li>
     </ul>
    
-     
+     <a href="logout"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Sair</button></a>
    
   </div>
 </nav>
@@ -55,7 +54,7 @@
 
 	<div class="row">
 		<div class="col-md-12 text-center">
-		<h3>Controle de Alunos</h3>
+		<h4>Atualização de Dados</h4>
 		</div>
 	</div>
   
@@ -108,7 +107,7 @@
   <div class="form-row">
     <div class="col-md-2 mb-3">
     <label for="cep">Cep</label>
-    <input type="text" class="form-control" id="cep" placeholder="Digite Cep" name="cep" onblur="pesquisacep(this.value);" value="<%out.print(request.getAttribute("telefone"));%>">
+    <input type="text" class="form-control" id="cep" placeholder="Digite Cep" name="cep" onblur="pesquisacep(this.value);" value="<%out.print(request.getAttribute("cep"));%>">
   </div>
   
  <div class="col-md-8 mb-3">
@@ -118,14 +117,14 @@
   
   <div class="col-md-2 mb-3">
     <label for="numero">Número</label>
-    <input type="text" class="form-control" id="" placeholder="" name="numero" >
+    <input type="text" class="form-control" id="" placeholder="" name="numero" value="<%out.print(request.getAttribute("numero"));%>">
   </div>
    </div>
    
    <div class="form-row">
 	<div class="col-md-2 mb-4">    
 	    <label for="complemento">Complemento</label>
-	    <input type="text" class="form-control" id="" placeholder="Digite Complemento" name="complemento">
+	    <input type="text" class="form-control" id="" placeholder="Digite Complemento" name="complemento" value="<%out.print(request.getAttribute("complemento"));%>">
 	</div> 
   
   	<div class="col-md-4 mb-4">    

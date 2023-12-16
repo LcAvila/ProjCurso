@@ -82,9 +82,10 @@ public class AlunoDao {
 	public void Consulta(Aluno alu) {
 		try {
 			con = new Conexao().conectar();
-			String sql = "select * from aluno where idaluno=?";
+			String sql = "select * from aluno where idaluno = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1, alu.getIdaluno());
+			System.out.println(alu.getIdaluno());
 			rs = stmt.executeQuery();
 			while(rs.next()) {
 				alu.setIdaluno(rs.getInt("idaluno"));
@@ -95,19 +96,17 @@ public class AlunoDao {
 				alu.setCpf(rs.getString("cpf"));
 				alu.setRg(rs.getString("rg"));
 				alu.setCep(rs.getString("cep"));
-				alu.setNumero(rs.getInt("numero"));
-				alu.setComplemento(rs.getString("complemento"));
-				
-				
+				alu.setNumero(rs.getInt("numero"));				
+				alu.setComplemento(rs.getString("complemento"));			
 				
 			}
+			
 		}
 		catch(Exception erro) {
 			System.out.println(erro);
-			
 		}
 	}
-	
+
 	
 	public void Editar(Aluno alu) {
 		try {
@@ -124,13 +123,10 @@ public class AlunoDao {
 			stmt.setInt(8, alu.getNumero());
 			stmt.setString(9, alu.getComplemento());
 			stmt.setInt(10, alu.getIdaluno());
-			stmt.executeUpdate();
-										
+			stmt.executeUpdate();		
 		}
-		
 		catch(Exception erro) {
 			System.out.println(erro);
-			
 		}
 	}
 	
@@ -140,39 +136,16 @@ public class AlunoDao {
 			String sql = "delete from aluno where idaluno=?";
 			PreparedStatement stmt = con.prepareStatement(sql);			
 			stmt.setInt(1, alu.getIdaluno());
-			stmt.executeUpdate();
-										
+			stmt.executeUpdate();		
 		}
-		
 		catch(Exception erro) {
 			System.out.println(erro);
-			
 		}
 	}
+
+
 	
-
+	
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

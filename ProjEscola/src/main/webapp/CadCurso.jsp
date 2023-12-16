@@ -3,80 +3,103 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Styles/CadCurso.css" media="">
-    <title>Cadastro</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Styles/CadCurso.css" media="">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Cadastro</title>
 </head>
 <body>
-    <div>
-        <h1 id="titulo">Cursos</h1>
-        <p id="subtitulo">Complete suas Informações</p>
-        <br>
-    </div>
-    <form action="">
-        <fieldset class="grupo">
-            <div class="campo">
-                <label for="nome"><strong>Nome</strong></label>
-                <input type="text" name="nome" id="nome">
-            </div>   
-            <div class="campo">
-                <label for="sobrenome"><strong>Sobrenome</strong></</label>
-                <input type="text" name="sobrenome" id="sobrenome">
-            </div> 
-        </fieldset>
-        
-        <div class="campo"> 
-            <label for="email"><strong>Email</strong></</label>
-            <input type="email" name="email" id="email">
-        </div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Escola <span>Java</span></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#conteudoNavbarSuportado"
+			aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+			aria-label="Alterna navegação">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-        <div class="campo">
-            <label for=""><Strong>De qual lado da aplicação você quer desenvolver ?</Strong></label>
-            <label for="">
-                <input type="radio" name="devweb" value="frontend" checked>Front-end
-            </label>
-            <label for="">
-                <input type="radio" name="devweb" value="backend">Back-end
-            </label>
-            <label for="">
-                <input type="radio" name="devweb" value="fullstack">Fullstack
-            </label>
-        </div>
-        
+		<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="indexadm.jsp">Home <span class="sr-only">(página
+							atual)</span>
+				</a></li>
+			</ul>
+		</div>
+	</nav>
 
-        <fieldset class="grupo">
-            <div id="check">
-                <label for=""><Strong>Selecione as tecnologias que você quer aprender</Strong></label><br><br>
-                <input type="checkbox" id="tecnologia1" name="tecnologia1" value="HTML">
-                <label for="tecnologia1">HTML</label>
-                <input type="checkbox" id="tecnologia1" name="tecnologia2" value="CSS">
-                <label for="tecnologia2">CSS</label>
-                <input type="checkbox" id="tecnologia1" name="tecnologia3" value="JavaScript">
-                <label for="tecnologia3">JavaScript</label>
-                <input type="checkbox" id="tecnologia1" name="tecnologia3" value="Python">
-                <label for="tecnologia4">Python</label>
-                <input type="checkbox" id="tecnologia1" name="tecnologia3" value="Java">
-                <label for="tecnologia5">Java</label>
-                <input type="checkbox" id="tecnologia1" name="tecnologia3" value="PHP">
-                <label for="tecnologia6">PHP</label>
-                <input type="checkbox" id="tecnologia1" name="tecnologia3" value="React">
-                <label for="tecnologia7">React</label>
-                <input type="checkbox" id="tecnologia1" name="tecnologia3" value="Angular">
-                <label for="tecnologia8">Angular</label>
-                
-            </div>
-        </fieldset>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h3>Cadastro de cursos</h3>
+			</div>
+		</div>
 
-        <div class="campo">
-            <br>
-            <label for=""><Strong>Conte um pouco da sua experiência</Strong></label>
-            <textarea name="experiência" id="experiencia"  rows="6" style="width:26em"></textarea>
-        </div>
-        <button type="submit" class="botao">Concluido</button>
-       
-    </form>
-    
+		<form method="get" action="cursonovo">
+
+			<div class="container">
+				<div class="row">
+				   <div class="col">
+					<label for="idcliente">Código do Curso</label> <input type="text"
+						class="form-control" name="idcurso">
+						
+					<div class="col-md-auto">
+						<label for="nome">Nome</label> <input type="text"
+							class="form-control" id="" placeholder="Digite Nome" name="nome">
+					</div>
+				</div>
+			</div>
+				
+				<select class="w3-half w3-container"
+					aria-label="Large select example" name="tipocurso">
+					<option selected>Selecione o curso</option>
+					<option value="1">Programação Java</option>
+					<option value="2">Programação Python</option>
+					<option value="3">Three</option>
+				</select>
+				
+				
+				 <select class="w3-half w3-container"
+					aria-label="Small select example" name="cargahoraria">
+					<option selected>Horário/Turno</option>
+					<option value="1">07:00 - 11:00 / Manhã</option>
+					<option value="2">12:00 - 16:00 / Tarde</option>
+					<option value="3">18:00 - 22:00 / Noite</option>
+				</select>
+
+				<div class="col-lg-6 md-2 mb-3 ">
+					<label for="exampleFormControlInput1" class="form-label">Email
+						address</label> <input type="email" class="form-control"
+						id="exampleFormControlInput1" placeholder="name@example.com"
+						name="email">
+				</div>
+				<div class="col-lg-6 md-2 mb-3 ">
+					<label for="exampleFormControlTextarea1" class="form-label">Escreva
+						Aqui ...</label>
+					<textarea class="form-control" id="exampleFormControlTextarea1"
+						rows="3"></textarea>
+				</div>
+
+
+
+				<button type="submit" class="btn btn-primary">Enviar</button>
+		</form>
+
+
+
+
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script
+			src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
-</html></html>
+</html>
+</html>

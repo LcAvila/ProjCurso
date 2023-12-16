@@ -12,6 +12,16 @@
 	%>
     
     
+    <%
+ request.getSession().getAttribute("usuario");
+ Object usu = session.getAttribute("usuario");
+ 
+ if(usu==null){
+	 response.sendRedirect("Login.jsp");
+ }
+ 
+ %>
+    
     
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,7 +36,6 @@
     <title>Relatório de Alunos</title>
   </head>
   <body>
-  
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav mr-auto">      
@@ -38,7 +47,7 @@
           <a class="dropdown-item" href="CadAluno.jsp">Aluno</a>
           <a class="dropdown-item" href="CadCurso.jsp">Curso</a>          
           <a class="dropdown-item" href="#">Turma</a>
-          <a class="dropdown-item" href="#">Matricula</a>          
+          <a class="dropdown-item" href="cadmatricula">Matricula</a>          
         </div>
       </li>
       
@@ -48,7 +57,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="relaluno">Aluno</a>
-          <a class="dropdown-item" href="">Curso</a>          
+          <a class="dropdown-item" href="#">Curso</a>          
           <a class="dropdown-item" href="#">Turma</a>
           <a class="dropdown-item" href="#">Matricula</a>          
         </div>
@@ -61,12 +70,11 @@
       </li>
     </ul>
    
-     
+     <a href="logout"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Sair</button></a>
    
   </div>
 </nav>
-
-
+  
     <div class="container-fluid">
     	<div class="row">
     		<div class="col-md-12 text-center">
@@ -97,8 +105,8 @@
 			      <td><%=lista.get(i).getTelefone()%></td>
 			      <td><%=lista.get(i).getEmail()%></td>
 			      <td><%=lista.get(i).getCpf()%></td>	
-			      <td><a href="bteditar?idaluno=<%=lista.get(i).getIdaluno()%>"><button type="button" class="btn btn-primary">Editar</button></a></td>
-			      <td><a href="btexcluir?idaluno=<%=lista.get(i).getIdaluno()%>"><button type="button" class="btn btn-danger">Excluir</button></a></td>		      
+			      <td><a href="bteditar?idaluno=<%=lista.get(i).getIdaluno()%>"><button type="button" class="btn btn-primary">Editar</button></a></td>	
+			      <td><a href="btexcluir?idaluno=<%=lista.get(i).getIdaluno()%>"><button type="button" class="btn btn-danger">Excluir</button></a></td>		      	      
 			    </tr>
 			    
 			    <% } %>
